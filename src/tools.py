@@ -109,9 +109,9 @@ def rss_feed_search(query: str) -> str:
     return "\n\n---\n".join(results) if results else "No matching recent RSS entries found."
 
 def get_llm_with_tools():
-    llm = ChatOllama(model="llama3.2", temperature=0) 
-    tools = [lookup_policy_docs, web_search_stub, rss_feed_search]
-    llm_with_tools = llm.bind_tools(tools)
+    llm = ChatOllama(model="llama3.2", temperature=0) #LLM created
+    tools = [lookup_policy_docs, web_search_stub, rss_feed_search] #tool list created
+    llm_with_tools = llm.bind_tools(tools) #LLM bind tools
     return llm, llm_with_tools, tools
 
 if __name__ == "__main__":
